@@ -15,16 +15,17 @@ header {
     background: #020122;    
     color: #F15025;
     letter-spacing: 2px;
-    text-shadow: -1px -1px 0 #8B8982, 
-        1px -1px 0 #8B8982, 
-        -1px 1px 0 #8B8982, 
-        1px 1px 0 #8B8982;
 }
 
 header h1 {
     font-size: 92px;
     margin-bottom: 0;
     margin-top: 10px;
+}
+
+main h1 {
+    text-align: center;
+    font-family: 'Lobster', cursive;
 }
 
 .nav-ul {
@@ -55,4 +56,44 @@ li a {
 
 li a:visited {
     color: darkslateblue;
+}
+
+img {
+    width: auto;
+    height: 300px;
+}
+
+#instruments-ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+#instruments-ul li {
+    list-style: none;
+    position: relative;
+    text-align: center;
+    margin: 70px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Libre Baskerville', serif;
+    background: wheat;
+    width: 300px;
+    height: auto;
+}
+
+#instruments-ul li img {
+    max-width: 280;
+    max-height: auto;
+}
+
+#instruments-ul li button {
+    padding:5px;
+}
+
+main {
+    background: #8B8982
 }
