@@ -1,12 +1,13 @@
 import renderInstrument from '../shop/render-instrument.js';
-import renderTableRow from '../shopping-cart/render-table-row.js';
+import { renderCart, cart } from '../cart/render-cart.js';
+import { findProduct, calcLineTotal, calcOrderTotal } from '../common/utils.js';
+import instrumentArray, { guitar as rootGuitar } from '../shop/instruments.js';
 
 const test = QUnit.test;
 
-QUnit.module('Render Instrument');
+QUnit.module('Shopping site tests');
 
 test('renderInstrument correctly renders an instrument', assert => {
-    // arrange
     const guitar = {
         id: 'guitar',
         brand: 'Guild',
@@ -15,18 +16,16 @@ test('renderInstrument correctly renders an instrument', assert => {
         category: 'stringed',
         price: 500,
     };
+    
     const expected = '<li class="stringed" title="Brand: Guild"><h3>A good guitar</h3><img src="../img/guild.jpg" alt="A good guitar image"><p class="price">$500<button value="guitar">Add</button></p></li>';
     
-    // act
     const dom = renderInstrument(guitar);
     const html = dom.outerHTML;
     
-    // assert
     assert.equal(html, expected);
 });
 
-test('renderTableRow correctly renders table row', assert => {
-    // arrange
+test('renderCart correctly renders table row', assert => {
     const guitar = {
         id: 'guitar',
         brand: 'Guild',
@@ -36,17 +35,48 @@ test('renderTableRow correctly renders table row', assert => {
         price: 500,
     };
 
-    const cart = {
-        code: 'apple',
+    const guitarOrder = {
+        id: 'guitar',
         quantity: 4
     };
 
-    const expected = '<tr><td>apple</td><td>4</td><td>$1.00</td><td>$4.00</td></tr>';
+    const expected = '<tr><td>guitar</td><td>4</td><td>$500.00</td><td>$2,000.00</td></tr>';
     
-    // act
-    const fruitElementTr = renderTableRow(apple, appleOrder);
-    const html = fruitElementTr.outerHTML;
+    const cartTr = renderCart(guitarOrder, guitar);
+    const html = cartTr.outerHTML;
     
-    // assert
     assert.equal(html, expected);
+});
+
+test('findProduct returns the instrument with the id that matches the cart item id ', assert => {
+    const instruments = instrumentArray;
+
+    const cartID = 'guitar';
+
+    const expected = rootGuitar;
+    
+    const product = findProduct(instruments, cartID);
+    
+    assert.deepEqual(product, expected);
+});
+
+test('calcLineTotal returns the correct line price ', assert => {
+    const quantity = 4;
+
+    const price = 50;
+
+    const expected = 200.00;
+
+    const total = calcLineTotal(quantity, price);
+    
+    assert.equal(total, expected);
+});
+
+test('calcOrderTotal returns the correct order total ', assert => {
+
+    const expected = 3900.00;
+
+    const total = calcOrderTotal(cart, instrumentArray);
+    
+    assert.equal(total, expected);
 });
