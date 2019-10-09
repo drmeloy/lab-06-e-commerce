@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    background: #020122;    
+    color: #F15025;
+    letter-spacing: 2px;
+    text-shadow: -1px -1px 0 #8B8982, 
+        1px -1px 0 #8B8982, 
+        -1px 1px 0 #8B8982, 
+        1px 1px 0 #8B8982;
+}
+
+header h1 {
+    font-size: 92px;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.nav-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    border-top: 2px solid #F4F5F9;
+    border-bottom: 2px solid #F4F5F9;
+    margin: 0 auto;
+    background: #283D3B;
+}
+
+.nav-ul li {
+    padding: 25px 80px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 36px;
+    text-shadow: -1px -1px 0 #8B8982, 
+        1px -1px 0 #8B8982, 
+        -1px 1px 0 #8B8982, 
+        1px 1px 0 #8B8982;
+}
+
+li a {
+    color: darkslateblue;
+}
+
+li a:visited {
+    color: darkslateblue;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #8B8982;
+}
+
+section p {
+    width: 625px;
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+    font-size: 27px;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+}
