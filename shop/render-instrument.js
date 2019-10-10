@@ -19,9 +19,14 @@ function renderInstrument(instrument){
     p.className = 'price';
     p.textContent = '$' + instrument.price;
 
+    const inputQuantity = document.createElement('input');
+    inputQuantity.type = 'number';
+    inputQuantity.id = 'input';
+    p.appendChild(inputQuantity);
+
     const button = document.createElement('button');
     button.value = instrument.id;
-    button.textContent = 'Add';
+    button.textContent = 'Add to cart';
     button.addEventListener('click', () => {
         let json = localStorage.getItem('cart');
         let cart;
@@ -32,17 +37,20 @@ function renderInstrument(instrument){
             cart = [];
         }
 
+        let numberToCart = Number(inputQuantity.value);
         let lineItem = findProduct(cart, button.value);
         if (!lineItem){
             lineItem = {
                 id: button.value,
-                quantity: 1
+                quantity: numberToCart
             };
             cart.push(lineItem);
         } else {
-            lineItem.quantity++;
+            lineItem.quantity += numberToCart;
         }
-
+       
+        alert(`${inputQuantity.value} ${lineItem.id} added to cart!`);
+        inputQuantity.value = null;
         json = JSON.stringify(cart);
         localStorage.setItem('cart', json);
     });
