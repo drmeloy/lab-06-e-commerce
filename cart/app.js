@@ -4,7 +4,7 @@ import { toUsd, calcOrderTotal } from '../common/utils.js';
 
 
 const cart = JSON.parse(localStorage.getItem('cart'));
-const orderButton = document.getElementById('order-button')
+const orderButton = document.getElementById('order-button');
 
 const cartTb = document.getElementById('tbody');
 
