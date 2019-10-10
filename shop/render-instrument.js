@@ -1,3 +1,5 @@
+import { findProduct } from '../common/utils.js';
+
 function renderInstrument(instrument){
 
     const li = document.createElement('li');
@@ -20,6 +22,30 @@ function renderInstrument(instrument){
     const button = document.createElement('button');
     button.value = instrument.id;
     button.textContent = 'Add';
+    button.addEventListener('click', () => {
+        let json = localStorage.getItem('cart');
+        let cart;
+        if (json){
+            cart = JSON.parse(json);
+        }
+        else {
+            cart = [];
+        }
+
+        let lineItem = findProduct(cart, button.value);
+        if (!lineItem){
+            lineItem = {
+                id: button.value,
+                quantity: 1
+            };
+            cart.push(lineItem);
+        } else {
+            lineItem.quantity++;
+        }
+
+        json = JSON.stringify(cart);
+        localStorage.setItem('cart', json);
+    });
 
     p.appendChild(button);
     li.appendChild(p);

@@ -23,16 +23,3 @@ export const renderCart = (cart, instrument) => {
     return tableRow;
 };
 
-export const cart = [{
-    id: 'guitar',
-    quantity: 2
-}, {
-    id: 'trumpet',
-    quantity: 5
-}, {
-    id: 'piano',
-    quantity: 1
-}, {
-    id: 'harmonica',
-    quantity: 10
-}];
