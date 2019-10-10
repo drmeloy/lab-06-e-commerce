@@ -1,6 +1,6 @@
 import instruments from '../shop/instruments.js';
 import { renderCart, cart } from './render-cart.js';
-import { toUsd, calcLineTotal, calcOrderTotal } from '../common/utils.js';
+import { toUsd, calcOrderTotal } from '../common/utils.js';
 
 const cartTb = document.getElementById('tbody');
 
