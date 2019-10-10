@@ -69,4 +69,61 @@ main {
     font-size: 34px;
     line-height: 1.4em;
     letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+};
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    max-width: 800px;
+}
+
+thead {
+    background: #444;
+    color: white;
+    border: 1px solid black;
+}
+
+table th, table td {
+    text-align: right;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+tbody {
+    background: white;
+}
+
+tbody tr:nth-child(even) {
+    background: #eee;
+}
+
+tbody td {
+    font-size: 0.9rem;
+}
+
+.line-item-total {
+    font-weight: bolder;
+}
+
+tfoot {
+    background: #999;
+    color: white;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    margin: 20px;
+    font-family: 'Libre Baskerville', serif;
+    border: 1px solid black;
+}
+
+button:hover {
+    background: #283D3B;
+    color: white;
+    border: 1px solid white;
 }

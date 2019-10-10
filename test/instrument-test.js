@@ -1,9 +1,11 @@
 import renderInstrument from '../shop/render-instrument.js';
-import renderCart from '../cart/render-cart.js';
+import { renderCart, cart } from '../cart/render-cart.js';
+import { findProduct, calcLineTotal, calcOrderTotal } from '../common/utils.js';
+import instrumentArray, { guitar as rootGuitar } from '../shop/instruments.js';
 
 const test = QUnit.test;
 
-QUnit.module('Render Instrument');
+QUnit.module('Shopping site tests');
 
 test('renderInstrument correctly renders an instrument', assert => {
     const guitar = {
@@ -44,4 +46,37 @@ test('renderCart correctly renders table row', assert => {
     const html = cartTr.outerHTML;
     
     assert.equal(html, expected);
+});
+
+test('findProduct returns the instrument with the id that matches the cart item id ', assert => {
+    const instruments = instrumentArray;
+
+    const cartID = 'guitar';
+
+    const expected = rootGuitar;
+    
+    const product = findProduct(instruments, cartID);
+    
+    assert.deepEqual(product, expected);
+});
+
+test('calcLineTotal returns the correct line price ', assert => {
+    const quantity = 4;
+
+    const price = 50;
+
+    const expected = 200.00;
+
+    const total = calcLineTotal(quantity, price);
+    
+    assert.equal(total, expected);
+});
+
+test('calcOrderTotal returns the correct order total ', assert => {
+
+    const expected = 3900.00;
+
+    const total = calcOrderTotal(cart, instrumentArray);
+    
+    assert.equal(total, expected);
 });

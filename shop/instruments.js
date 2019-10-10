@@ -7,7 +7,7 @@ function Product(id, brand, image, description, category, price){
     this.price = price;
 }
 
-const guitar = new Product('guitar', 'Guild', '../img/guild.jpg', 'A good guitar', 'stringed', 500);
+export const guitar = new Product('guitar', 'Guild', '../img/guild.jpg', 'A good guitar', 'stringed', 500);
 const saxophone = new Product('saxophone', 'Yamaha', '../img/saxophone.jpg', 'A good saxophone', 'horn', 800);
 const cello = new Product('cello', 'Etude', '../img/cello.jpg', 'A good cello', 'stringed', 400);
 const piano = new Product('piano', 'Kawai', '../img/piano.jpg', 'A good piano', 'percussion', 1500);
