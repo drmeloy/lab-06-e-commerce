@@ -27,11 +27,11 @@ if (!cart){
 }
 
 orderButton.addEventListener('click', () => {
-    let itemsOrdered = '';
+    let itemsOrdered = '\n';
     cart.forEach(item => {
         itemsOrdered += item.quantity + ' ' + item.id + '\n';
     });
-    alert(`You are ordering: \n ${itemsOrdered} Thank you for shopping with us!`);
+    alert(`You are ordering: ${itemsOrdered} Thank you for shopping with us!`);
     localStorage.removeItem('cart');
     window.location.href = '../home/index.html';
 });
