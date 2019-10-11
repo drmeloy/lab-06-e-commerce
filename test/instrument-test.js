@@ -17,7 +17,7 @@ test('renderInstrument correctly renders an instrument', assert => {
         price: 500,
     };
     
-    const expected = '<li class="stringed" title="Brand: Guild"><h3>A good guitar</h3><img src="../img/guild.jpg" alt="A good guitar image"><p class="price">$500<input type="number" id="input"><button value="guitar">Add to cart</button></p></li>';
+    const expected = '<li class="stringed" title="Brand: Guild"><h3>A good guitar</h3><img src="../img/guild.jpg" alt="A good guitar image"><p class="price">$500<input type="number" id="input" min="0"><button value="guitar">Add to cart</button></p></li>';
     
     const dom = renderInstrument(guitar);
     const html = dom.outerHTML;

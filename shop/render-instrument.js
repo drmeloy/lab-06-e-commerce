@@ -22,6 +22,7 @@ function renderInstrument(instrument){
     const inputQuantity = document.createElement('input');
     inputQuantity.type = 'number';
     inputQuantity.id = 'input';
+    inputQuantity.min = 0;
     p.appendChild(inputQuantity);
 
     const button = document.createElement('button');
