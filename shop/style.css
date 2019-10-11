@@ -98,3 +98,10 @@ img {
 main {
     background: #8B8982
 }
+
+input {
+    width: 30px;
+    margin-left: 5px;
+    font-family: 'Libre Baskerville', serif;
+    border-radius: 5px;
+}

@@ -1,5 +1,5 @@
 import renderInstrument from '../shop/render-instrument.js';
-import { renderCart, cart } from '../cart/render-cart.js';
+import { renderCart } from '../cart/render-cart.js';
 import { findProduct, calcLineTotal, calcOrderTotal } from '../common/utils.js';
 import instrumentArray, { guitar as rootGuitar } from '../shop/instruments.js';
 
@@ -17,7 +17,7 @@ test('renderInstrument correctly renders an instrument', assert => {
         price: 500,
     };
     
-    const expected = '<li class="stringed" title="Brand: Guild"><h3>A good guitar</h3><img src="../img/guild.jpg" alt="A good guitar image"><p class="price">$500<button value="guitar">Add</button></p></li>';
+    const expected = '<li class="stringed" title="Brand: Guild"><h3>A good guitar</h3><img src="../img/guild.jpg" alt="A good guitar image"><p class="price">$500<input type="number" id="input"><button value="guitar">Add to cart</button></p></li>';
     
     const dom = renderInstrument(guitar);
     const html = dom.outerHTML;
@@ -75,6 +75,20 @@ test('calcLineTotal returns the correct line price ', assert => {
 test('calcOrderTotal returns the correct order total ', assert => {
 
     const expected = 3900.00;
+
+    const cart = [{
+        id: 'guitar',
+        quantity: 2
+    }, {
+        id: 'trumpet',
+        quantity: 5
+    }, {
+        id: 'piano',
+        quantity: 1
+    }, {
+        id: 'harmonica',
+        quantity: 10
+    }];
 
     const total = calcOrderTotal(cart, instrumentArray);
     
