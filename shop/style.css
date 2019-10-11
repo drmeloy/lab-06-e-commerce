@@ -26,6 +26,10 @@ header h1 {
 main h1 {
     text-align: center;
     font-family: 'Lobster', cursive;
+    font-size: 5vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: underline;
 }
 
 .nav-ul {
@@ -67,6 +71,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     padding: 80px;
+    padding-top: 0;
     justify-content: center;
     align-items: center;
 }
@@ -76,7 +81,7 @@ img {
     position: relative;
     text-align: center;
     margin: 50px;
-    border: 2px solid gray;
+    border: inset;
     border-radius: 10px;
     padding: 15px;
     font-family: 'Libre Baskerville', serif;
@@ -85,14 +90,38 @@ img {
     height: auto;
 }
 
+#instruments-ul li:hover {
+    transform: translate(3px, -3px) scale(1.1);
+    box-shadow: -5px 5px 10px black;
+    transition-duration: 300ms;
+    border: outset;
+    font-size: 1vw;
+}
+
 #instruments-ul li img {
     max-width: 280;
     max-height: auto;
+    border: 1px solid black;
 }
 
 #instruments-ul li button {
     padding: 5px;
     margin-left: 5px;
+    font-family: 'Libre Baskerville', serif;
+    border-radius: 5px;
+}
+
+#instruments-ul li button:hover {
+    padding: 5px;
+    margin-left: 5px;
+    font-family: 'Libre Baskerville', serif;
+    border-radius: 5px;
+    background: #283D3B;
+    color: white;
+    transform: translate(3px, -3px);
+    box-shadow: -5px 5px 10px black;
+    transition-duration: 300ms;
+    cursor: pointer;
 }
 
 main {
@@ -104,4 +133,13 @@ input {
     margin-left: 5px;
     font-family: 'Libre Baskerville', serif;
     border-radius: 5px;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button:hover,
+input[type=number]::-webkit-outer-spin-button:hover {
+    cursor: point;
 }
