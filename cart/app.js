@@ -34,6 +34,18 @@ orderButton.addEventListener('click', () => {
     alert(`You are ordering: ${itemsOrdered} Thank you for shopping with us!`);
 
     localStorage.removeItem('cart');
+});
+
+const alertOrder = () => {
+    let itemsOrdered = '';
+    cart.forEach(item => {
+        itemsOrdered += item.quantity + ' ' + item.id + '\n';
+    });
+    alert(`You are ordering: \n ${itemsOrdered} Thank you for shopping with us!`);
+};
+
+const clearCart = () => {
+    localStorage.removeItem('cart');
 };
 
 const goHome = () => {
