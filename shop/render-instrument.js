@@ -38,7 +38,17 @@ function renderInstrument(instrument){
             cart = [];
         }
 
+        let jsonSales = localStorage.getItem('sales');
+        let sales;
+        if (jsonSales){
+            sales = JSON.parse(jsonSales);
+        }
+        else {
+            sales = [];
+        }
+
         let numberToCart = Number(inputQuantity.value);
+
         let lineItem = findProduct(cart, button.value);
         if (!lineItem){
             lineItem = {
@@ -49,11 +59,24 @@ function renderInstrument(instrument){
         } else {
             lineItem.quantity += numberToCart;
         }
-       
+
+        let lineItemSales = findProduct(sales, button.value);
+        if (!lineItemSales){
+            lineItemSales = {
+                id: button.value,
+                quantity: numberToCart
+            };
+            sales.push(lineItemSales);
+        } else {
+            lineItemSales.quantity += numberToCart;
+        }
+
         alert(`${inputQuantity.value} ${lineItem.id} added to cart!`);
         inputQuantity.value = null;
         json = JSON.stringify(cart);
         localStorage.setItem('cart', json);
+        jsonSales = JSON.stringify(sales);
+        localStorage.setItem('sales', json);
     });
 
     p.appendChild(button);
