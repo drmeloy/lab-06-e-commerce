@@ -26,15 +26,13 @@ const buildCart = () => {
     orderTotalDisplay.textContent = toUsd(orderTotal);
 };
 
-const alertOrder = () => {
-    let itemsOrdered = '';
+orderButton.addEventListener('click', () => {
+    let itemsOrdered = '\n';
     cart.forEach(item => {
         itemsOrdered += item.quantity + ' ' + item.id + '\n';
     });
-    alert(`You are ordering: \n ${itemsOrdered} Thank you for shopping with us!`);
-};
+    alert(`You are ordering: ${itemsOrdered} Thank you for shopping with us!`);
 
-const clearCart = () => {
     localStorage.removeItem('cart');
 };
 
