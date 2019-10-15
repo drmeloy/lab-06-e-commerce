@@ -126,4 +126,7 @@ button:hover {
     background: #283D3B;
     color: white;
     border: 1px solid white;
+    transform: translate(3px, -3px);
+    box-shadow: -5px 5px 10px black;
+    transition-duration: 300ms;
 }
